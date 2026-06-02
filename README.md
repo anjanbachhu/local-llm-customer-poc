@@ -1,5 +1,12 @@
 # Local LLM · Customer Search POC
 
+[![build](https://github.com/anjanbachhu/local-llm-customer-poc/actions/workflows/ci.yml/badge.svg)](https://github.com/anjanbachhu/local-llm-customer-poc/actions/workflows/ci.yml)
+![Java](https://img.shields.io/badge/Java-21-orange)
+![Spring Boot](https://img.shields.io/badge/Spring%20Boot-3.3-brightgreen)
+![Model](https://img.shields.io/badge/LLM-Qwen2.5--0.5B--Instruct-blue)
+![Offline](https://img.shields.io/badge/AI-100%25%20offline-success)
+![License](https://img.shields.io/badge/license-Proprietary-red)
+
 A **Java 21 + Spring Boot 3 + Gradle** proof-of-concept that runs a Large Language
 Model **entirely on your laptop** (no OpenAI, no external AI API). Upload customer
 JSON files and ask questions in plain English; a locally hosted
@@ -182,3 +189,12 @@ D:\Local_LLM_POC
     │       └── static/{css,js}
     └── test/java/com/poc/llm/service/CustomerFilterServiceTest.java
 ```
+
+---
+
+## License
+
+**Proprietary — All Rights Reserved.** This source is published for demonstration
+and evaluation only; it is **not** free to use, copy, modify, or sell. Commercial
+use requires a separate signed license. See [LICENSE](LICENSE) or contact
+**anjan.bachhu@gmail.com**.
