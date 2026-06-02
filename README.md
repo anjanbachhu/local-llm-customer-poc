@@ -13,6 +13,8 @@ JSON files and ask questions in plain English; a locally hosted
 **Qwen2.5-0.5B-Instruct** model converts your question into a structured filter,
 and plain Java business logic does the searching.
 
+![Application UI — natural-language customer search running fully offline](docs/Screenshot.png)
+
 > **Hybrid design (the important bit):** the customer records are **never** sent
 > to the model. Only the *question* goes to the LLM, which returns a small JSON
 > filter. Java then filters the in-memory records. This keeps the approach
