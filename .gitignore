@@ -1,0 +1,20 @@
+# Gradle
+.gradle/
+build/
+
+# IDE
+.idea/
+*.iml
+.vscode/
+.settings/
+.classpath
+.project
+
+# Model weights (large binaries — download separately, see models/README.md)
+models/*.gguf
+models/*.bin
+models/*.onnx
+
+# OS
+.DS_Store
+Thumbs.db

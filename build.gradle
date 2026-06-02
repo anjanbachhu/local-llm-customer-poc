@@ -1,0 +1,55 @@
+plugins {
+    id 'java'
+    id 'org.springframework.boot' version '3.3.5'
+    id 'io.spring.dependency-management' version '1.1.6'
+}
+
+group = 'com.poc'
+version = '1.0.0'
+description = 'Local LLM customer-search POC (Qwen2.5-0.5B-Instruct, fully offline)'
+
+java {
+    toolchain {
+        languageVersion = JavaLanguageVersion.of(21)
+    }
+}
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    // --- Spring Boot ---
+    implementation 'org.springframework.boot:spring-boot-starter-web'
+    implementation 'org.springframework.boot:spring-boot-starter-thymeleaf'
+    implementation 'org.springframework.boot:spring-boot-starter-validation'
+
+    // Jackson is pulled in transitively by spring-boot-starter-web; declared explicitly for clarity.
+    implementation 'com.fasterxml.jackson.core:jackson-databind'
+
+    // --- Local LLM inference -----------------------------------------------
+    // java-llama.cpp: pure-Java bindings around llama.cpp. Loads quantised GGUF
+    // models on CPU with a very small memory footprint (ideal for 16 GB laptops).
+    // The dependency ships the native binaries for Windows/Linux/macOS, so no
+    // external toolchain is required. Swap the GGUF file in application.yml to
+    // plug in a larger model later without touching any code.
+    implementation 'de.kherud:llama:4.1.0'
+
+    // --- Lombok ---
+    compileOnly 'org.projectlombok:lombok'
+    annotationProcessor 'org.projectlombok:lombok'
+
+    // --- Test ---
+    testImplementation 'org.springframework.boot:spring-boot-starter-test'
+    testRuntimeOnly 'org.junit.platform:junit-platform-launcher'
+}
+
+tasks.named('test') {
+    useJUnitPlatform()
+}
+
+// Give the JVM comfortable head-room. The GGUF model is memory-mapped by the
+// native layer (outside the Java heap), so a modest heap is plenty.
+tasks.named('bootRun') {
+    jvmArgs = ['-Xmx2g', '-XX:+UseG1GC']
+}

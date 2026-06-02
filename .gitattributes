@@ -1,0 +1,17 @@
+# Normalise line endings for a clean, cross-platform repo
+* text=auto eol=lf
+
+# Windows scripts must keep CRLF
+*.bat   text eol=crlf
+*.cmd   text eol=crlf
+
+# The Gradle wrapper shell script must keep LF (breaks on *nix otherwise)
+gradlew text eol=lf
+
+# Treat these as binary
+*.jar   binary
+*.gguf  binary
+*.bin   binary
+*.onnx  binary
+*.png   binary
+*.jpg   binary

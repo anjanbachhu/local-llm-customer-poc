@@ -1,0 +1,37 @@
+server:
+  port: 8080
+
+spring:
+  application:
+    name: local-llm-customer-poc
+  servlet:
+    multipart:
+      enabled: true
+      max-file-size: 25MB
+      max-request-size: 100MB
+
+# ---------------------------------------------------------------------------
+# Local LLM configuration
+# ---------------------------------------------------------------------------
+# model-path : path to the GGUF model file on disk (relative to the project root
+#              or absolute). Swap this single value to plug in a larger model
+#              (e.g. Qwen2.5-3B-Instruct) without any code change.
+# enabled    : set to false to force the deterministic rule-based extractor and
+#              skip loading the model entirely (handy for quick UI testing).
+# ---------------------------------------------------------------------------
+app:
+  llm:
+    enabled: true
+    model-path: models/qwen2.5-0.5b-instruct-q4_k_m.gguf
+    model-name: Qwen2.5-0.5B-Instruct
+    context-size: 2048
+    max-tokens: 200
+    temperature: 0.0
+    gpu-layers: 0          # 0 = CPU only (recommended for a 16 GB laptop)
+    threads: 4
+
+logging:
+  level:
+    root: INFO
+    com.poc.llm: INFO
+    de.kherud.llama: WARN

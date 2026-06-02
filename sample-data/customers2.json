@@ -1,0 +1,8 @@
+[
+  { "customerId": "2001", "name": "Sofia Rossi",     "email": "sofia.rossi@gmail.com", "city": "Manchester", "status": "Active" },
+  { "customerId": "2002", "name": "James Wilson",    "email": "james@example.com",     "city": "Manchester", "status": "Inactive" },
+  { "customerId": "2003", "name": "Aisha Khan",      "email": "aisha.khan@gmail.com",  "city": "Manchester", "status": "Active" },
+  { "customerId": "2004", "name": "Tom Baker",       "email": null,                    "city": "London",     "status": "Active" },
+  { "customerId": "2005", "name": "Priya Nair",      "email": "priya.nair@gmail.com",  "city": "London",     "status": "Active" },
+  { "customerId": "2006", "name": "Liam O'Connor",   "email": "liam@yahoo.com",        "city": "Bristol",    "status": "Inactive" }
+]
