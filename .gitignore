@@ -18,3 +18,7 @@ models/*.onnx
 # OS
 .DS_Store
 Thumbs.db
+
+# Local convenience scripts (contain machine-specific JAVA_HOME)
+start-app.cmd
+stop-app.cmd
